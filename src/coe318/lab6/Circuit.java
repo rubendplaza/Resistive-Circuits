@@ -94,12 +94,12 @@ public class Circuit {
             throw new IllegalArgumentException("You cannot have less than 1 resistor.");
         }
 
-        System.out.println("Initializing resistors...");
+        System.out.println("\nInitializing resistors...");
 
         resistorArray = new Resistor[numOfResistors];
         for (int x = 0; x < numOfResistors; x++){
 
-            System.out.println("What is the value of R" + (x+1) + ":");
+            System.out.println("\nWhat is the value of R" + (x+1) + ":");
             valueOfResistor = input.nextDouble();
 
             if(valueOfResistor <= 0){
@@ -122,7 +122,7 @@ public class Circuit {
             resistorArray[x] = new Resistor(valueOfResistor, nodeArray[node1], nodeArray[node2]); // finally initializing the resistor after given resistance and its two connected nodes
         }
 
-        System.out.println(circuit); // prints out all the resistors in the resistor arraylist
+        System.out.println("\nPRINTING CIRCUIT RESISTORS AND NODE CONNECTIONS:\n\n" + circuit); // prints out all the resistors in the resistor arraylist
         input.close();
     }
 
