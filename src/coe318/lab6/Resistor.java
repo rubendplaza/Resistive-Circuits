@@ -11,11 +11,15 @@ public class Resistor {
 
     /**
      * Constructor for resistor:
-     * updates the static variable for the amount of resistor
+     * updates the static variable for the amount of resistors
+     *
+     * also accesses the instance of the circuit
+     * if one is not created it will create one
+     *
      * */
     public Resistor(double resistance, Node node1, Node node2){
 
-        this.circuit = Circuit.getInstance();
+        circuit = Circuit.getInstance();
 
         if(resistance < 0){
             throw new IllegalArgumentException("Resistance cannot be negative.");
@@ -34,8 +38,10 @@ public class Resistor {
     }
 
     /**
-     * */
-
+     * Not really sure why i would need this method
+     * not enough nodes for it to make sense for it
+     * to be in an array
+     **/
     public Node[] getNodes(){
 
         Node[] nodeArray = new Node[2];

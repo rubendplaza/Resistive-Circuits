@@ -14,6 +14,10 @@ public class Circuit {
 
     }
 
+    /**
+     * Creating the single instance of the circuit
+     * if no instance exists then it creates one
+     * */
     public static Circuit getInstance(){
 
         if(instance == null) {
@@ -63,22 +67,6 @@ public class Circuit {
 
         Circuit circuit = Circuit.getInstance();
 
-        /*Node node0 = new Node();
-        Node node1 = new Node();
-        Node node2 = new Node();
-        Node node3 = new Node();
-        Node node4 = new Node();
-
-        Resistor res1 = new Resistor(101, node0, node1);
-        Resistor res2 = new Resistor(102, node1, node2);
-        Resistor res3 = new Resistor(103, node1, node4);
-        Resistor res4 = new Resistor(104, node1, node3);
-        Resistor res5 = new Resistor(105, node2, node3);
-        Resistor res6 = new Resistor(106, node3, node4);
-        Resistor res7 = new Resistor(107, node3, node4);
-
-        System.out.println(circuit);*/
-
         Node[] nodeArray;
 
         Resistor[] resistorArray;
@@ -111,16 +99,31 @@ public class Circuit {
         resistorArray = new Resistor[numOfResistors];
         for (int x = 0; x < numOfResistors; x++){
 
-            System.out.println("What is the value of R" + x+1 + ":");
+            System.out.println("What is the value of R" + (x+1) + ":");
             valueOfResistor = input.nextDouble();
 
             if(valueOfResistor <= 0){
                 throw new IllegalArgumentException("Resistor value cannot be negative");
             }
 
-            /*resistorArray[x] = new Resistor()*/
+            System.out.println("What is the number of the first node its connected to?");
+            node1 = input.nextInt();
+
+            if(node1 < 0 || node1 > numOfNodes-1){
+                throw new IllegalArgumentException("Node cannot be less than zero or you have entered a node that does not exist");
+            }
+
+            System.out.println("What is the number of the second node its connected to?");
+            node2 = input.nextInt();
+
+            if(node2 < 0 || node2 > numOfNodes-1){
+                throw new IllegalArgumentException("Node cannot be less than zero or you have entered a node that does not exist");
+            }
+            resistorArray[x] = new Resistor(valueOfResistor, nodeArray[node1], nodeArray[node2]); // finally initializing the resistor after given resistance and its two connected nodes
         }
 
+        System.out.println(circuit); // prints out all the resistors in the resistor arraylist
+        input.close();
     }
 
 }
