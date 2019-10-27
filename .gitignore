@@ -26,3 +26,4 @@ hs_err_pid*
 
 .idea
 *.iml
+/out/production/lab6/META-INF/lab6.kotlin_module
