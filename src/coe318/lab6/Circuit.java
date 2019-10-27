@@ -122,7 +122,7 @@ public class Circuit {
             resistorArray[x] = new Resistor(valueOfResistor, nodeArray[node1], nodeArray[node2]); // finally initializing the resistor after given resistance and its two connected nodes
         }
 
-        System.out.println("\nPRINTING CIRCUIT RESISTORS AND NODE CONNECTIONS:\n\n" + circuit); // prints out all the resistors in the resistor arraylist
+        System.out.println("\nPRINTING CIRCUIT RESISTORS AND NODE CONNECTIONS:\nFORMAT: (RESISTOR ID___NODE 1___NODE 2___RESISTOR VALUE)\n\n" + circuit); // prints out all the resistors in the resistor arraylist
         input.close();
     }
 
