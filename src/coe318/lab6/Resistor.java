@@ -1,6 +1,4 @@
-package coe318.lab5;
-
-import java.lang.reflect.Constructor;
+package coe318.lab6;
 
 public class Resistor {
 
@@ -9,12 +7,15 @@ public class Resistor {
     private double resistance;
     private Node node1;
     private Node node2;
+    private Circuit circuit;
 
     /**
      * Constructor for resistor:
      * updates the static variable for the amount of resistor
      * */
     public Resistor(double resistance, Node node1, Node node2){
+
+        this.circuit = Circuit.getInstance();
 
         if(resistance < 0){
             throw new IllegalArgumentException("Resistance cannot be negative.");
@@ -28,8 +29,12 @@ public class Resistor {
             this.node2 = node2;
             resistorID = resistorCounter;
             resistorCounter++;
+            circuit.add(this);
         }
     }
+
+    /**
+     * */
 
     public Node[] getNodes(){
 
